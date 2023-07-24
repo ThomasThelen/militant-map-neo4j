@@ -43,21 +43,20 @@ SET r.date=row.date, r.description=row.description, r.relation_type=row.type
 
 ## CYPHER Queries
 
+Several queries and visuals that can be zoomed in if opened in a new tab.
+
+### View all Groups & Relations
+
 ```CYPHER
 MATCH(nodes) return (nodes)
 ```
 
-![](images/full-graph.svg)
-### Query all Nodes
-
-```CYPHER
-
-
-```
+<img src="images/full-graph.svg"  width="550">
 
 ### Query Relations to the Islamic State
 
 ```CYPHER
 match(ISIS {name: 'The Islamic State'})-[:hasRelation]-(Range) return ISIS, Range
 ```
-![](./images/islamic-state.svg)
+
+<img src="images/islamic-state.svg" width="550">
