@@ -45,6 +45,17 @@ SET r.date=row.date, r.description=row.description, r.relation_type=row.type
 
 Several queries and visuals that can be zoomed in if opened in a new tab.
 
+### View higest connected groups
+
+```CYPHER
+MATCH (militantGroup)-[r:hasRelation]->(b)
+with militantGroup, count(r) as relationCount
+ORDER BY (relationCount) DESC LIMIT 10
+return militantGroup.name, relationCount
+```
+<img src="images/most-connected.png"  width="550">
+
+
 ### View all Groups & Relations
 
 ```CYPHER
