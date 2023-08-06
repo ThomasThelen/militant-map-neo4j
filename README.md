@@ -8,9 +8,7 @@ The LPG data model is used to represent the different militant groups. Relations
 
 Militant groups are represented by nodes of type `MilitantGroup` and are connected to other groups though relationships which hold the bulk of the data, shown below.
 
-<img src="images/relations.png"  width="550">
-
-<img src="images/property-relations.png"  width="550">
+<img src="images/relations.png"  width="225"><img src="images/property-relations.png"  width="225">
 
 ## Data
 
