@@ -61,14 +61,6 @@ ORDER BY score DESC LIMIT 10;
 
 <img src="images/centrality.png"  width="550">
 
-#### Degree Centrality
-
-This measure is based on the degree of each node. It's ignored whether the relation is positive or negative; even the most hated group in a sense, is popular.
-
-```CYPHER
-
-```
-
 ### Community Detection
 
 The underlying goals of terrorist organizations vary group to group, with groups having similar goals being more connected. For example, the Irish National Liberation Army is connected to several groups concerned with the people of Ireland and shares no connection with those concerned with terror efforts in the Middle East.
@@ -80,7 +72,7 @@ Community detection helps make sense of coalitions and identify potential factio
 This measure of community detection is used to find "good" entry points to a community. This was run on the entire dataset, which explains the skew for Middle East based groups.
 
 ```CYPHER
-CALL gds.degree.stream('test-graph') YIELD nodeId, score
+CALL gds.degree.stream('militant-projection') YIELD nodeId, score
 MATCH (group:MilitantGroup) WHERE id(group)=nodeId
 WITH group, score
 ORDER BY score DESC
@@ -94,12 +86,19 @@ RETURN aggregations
 
 The Louvain is capable of classifying nodes into different detected communities.
 
+```CYPHER
+CALL gds.louvain.stream('militant-projection')
+YIELD nodeId, communityId, intermediateCommunityIds
+RETURN gds.util.asNode(nodeId).name AS name, communityId
+ORDER BY communityId
+```
 
 The image below shows successful detection of militant groups concerned with Ireland.
 <img src="images/irish-groups.png"  width="550">
 
 
 The image below shows successful detection of militant groups concerned with militant groups from the soviet area.
+
 <img src="images/communist-groups.png"  width="550">
 
 
