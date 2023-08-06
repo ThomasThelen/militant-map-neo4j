@@ -6,7 +6,11 @@ Stanford's Militant Mapping Project in Neo4j
 
 The LPG data model is used to represent the different militant groups. Relations between groups are represented by edges, which in turn have a property based on the date the relation is relevant for and the context of the relation.
 
-Militant groups are represented by nodes of type `MilitantGroup` and are connected to other groups though relationships which hold the bulk of the data.
+Militant groups are represented by nodes of type `MilitantGroup` and are connected to other groups though relationships which hold the bulk of the data, shown below.
+
+<img src="images/relations.png"  width="550">
+
+<img src="images/property-relations.png"  width="550">
 
 ## Data
 
